@@ -1,0 +1,21 @@
+cd /etc/netplan
+ls
+nano .yaml
+
+
+
+
+network:
+  renderer: networkd
+  ethernets:
+    ens3:
+     addresses:
+     - 10.0.0.21/24
+     routes:
+     - to: default
+       via: 10.0.0.1
+     nameservers:
+       addresses: [10.0.0.21,10.0.0.255]
+  version: 2
+
+sudo netplan apply
